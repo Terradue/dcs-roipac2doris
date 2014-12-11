@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="dcs-roipac2doris">
+  <jobTemplates>
+    <jobTemplate id="roipac2doris">
+      <streamingExecutable>/application/roipac2doris/run.sh</streamingExecutable>
+      <defaultParameters>
+        <parameter id="aux_catalogue">http://catalogue.terradue.int/catalogue/search</parameter>
+      </defaultParameters>      
+      <defaultJobconf>
+        <property id="mapred.task.timeout">9900000000</property>
+      </defaultJobconf>
+    </jobTemplate>
+  </jobTemplates>
+  <workflow id="dcs-roipac2doris" title="ASAR Image Mode Level 0 focussing with ROI_PAC and conversion to DORIS format" abstract="ASAR Image Mode Level 0 focussing with ROI_PAC and conversion to DORIS format">
+    <workflowVersion>1.0</workflowVersion>
+    <node id="node_roipac2doris">
+      <job id="roipac2doris" />
+      <sources>
+        <source scope="runtime" id="l0" title="ASAR Image Mode level 0" abstract="Define the ASAR Image Mode level 0 references" refid="string:list">http://eo-virtual-archive4.esa.int/search/ASA_IM__0P/ASA_IM__0CNPAM20111116_090515_000000163108_00352_50797_2088.N1/rdf</source>
+      </sources>
+      <parameters/>
+    </node>
+  </workflow>
+</application>
