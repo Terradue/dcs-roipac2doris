@@ -98,6 +98,10 @@ do
   
   ciop-log "INFO" "Invoke roipac2doris"
   roipac2doris $sar_date  
+
+  tar cfvz $sar_date.tgz ${sar_date}_roi.out ${sar_date}_slc.rsc ${sar_date}.slc *.res
+
+  ciop-publish -m $sar_date.tgz 
   
 done
 
